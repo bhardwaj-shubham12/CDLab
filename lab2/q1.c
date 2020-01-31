@@ -255,8 +255,9 @@ token getNextToken(FILE *fp)
 		else
 		{
 			colc=colc+ind;
+			ungetc(ca,fp);
 		}
-		ungetc(ca,fp);
+		//ungetc(ca,fp);
 		//printf("\n%c\n",ca);
 	}
 
@@ -301,8 +302,9 @@ token getNextToken(FILE *fp)
 		else
 		{
 			colc=colc+ind;
+			ungetc(ca,fp);
 		}
-		ungetc(ca,fp);
+		//ungetc(ca,fp);
 		//printf("\n%c\n",ca);
 	}
 	/////////////////////////////SPECIAL///////////////////////////
