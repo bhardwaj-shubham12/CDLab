@@ -185,6 +185,25 @@ token getNextToken(FILE *fp)
 		colc++;
 		//ca=getc(fp);
 	}
+	
+	else if(ca=='[')
+	{
+		t1.row=linec;
+		t1.col=colc;
+		t1.lex[0]='[';t1.lex[1]='\0';
+		strcpy(t1.type,"LS");
+		colc++;
+		//ca=getc(fp);
+	}
+	else if(ca==']')
+	{
+		t1.row=linec;
+		t1.col=colc;
+		t1.lex[0]=']';t1.lex[1]='\0';
+		strcpy(t1.type,"RS");
+		colc++;
+		//ca=getc(fp);
+	}
 
 	////////////////////////////STRING////////////////
 	else if(ca=='\"')
