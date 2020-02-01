@@ -338,6 +338,7 @@ int main()
 							{
 								e1.index=tind;
 								head=add(head,e1);
+								tind++;
 							}
 						}
 						else
