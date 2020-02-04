@@ -402,7 +402,7 @@ int main()
 			else
 			{
 				//ca=getc(fp);
-				;
+				ungetc(ca,fp);
 			}
 		}
 		else if(ca=='\t')
