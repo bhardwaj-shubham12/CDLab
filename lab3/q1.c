@@ -262,7 +262,7 @@ int main()
 			}
 			else
 			{
-				;
+				ungetc(ca,fp);
 			}
 		}
 
