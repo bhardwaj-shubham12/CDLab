@@ -28,9 +28,11 @@ void dprime();
 
 nodeptr lookahead;
 FILE *fp;
+int global=0;
 
 void Error(){
 	printf("Error at %s line no:%d\n",lookahead->tok.lex,lookahead->tok.row);
+	global=1;
 }
 
 void match(char str[]){
@@ -43,7 +45,7 @@ void match(char str[]){
 
 int main()
 {
-	FILE *fp=fopen("input.txt","r");
+	FILE *fp=fopen("input2.txt","r");
 	FILE *fp1=fopen("out.txt","w");
 	token t1;
 	nodeptr head=NULL;
@@ -57,7 +59,7 @@ int main()
 			strcpy(t1.type,"EOF");
 			t1.col=-1;
 			t1.row=-1;
-
+  
 			head=addnode(head,t1);
 			display(head);
 
@@ -66,7 +68,7 @@ int main()
 			
 			program();
 
-			if(!strcmp(lookahead->tok.lex,"EOF"))
+			if((!strcmp(lookahead->tok.lex,"EOF"))&&(global==0))
 			{
 				success;
 			}
@@ -338,4 +340,6 @@ void looping_stat()
 		statement_list();
 		match("}");
 	}
+	else
+		Error();
 }
