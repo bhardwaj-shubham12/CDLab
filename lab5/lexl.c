@@ -70,6 +70,8 @@ token getNextToken(FILE *fp)
 	///////////////ARITHMETIC OPERATOR////////////
 	if((ca=='+')||(ca=='-')||(ca=='*')||(ca=='/'))
 	{
+		t1.row=linec;
+		t1.col=colc;
 		t1.lex[0]=ca;
 		if(ca=='+')
 		{
