@@ -279,23 +279,6 @@ token getNextToken(FILE *fp)
 			strcpy(t1.type,"Identifier");
 			strcpy(t1.lex,buf);
 		}
-		if(ca=='\n')
-		{
-			linec++;
-			colc=1;
-		}	
-		else if((ca==' '))
-		{
-			colc=colc+ind+1;
-		}
-		else if(ca=='\t')
-		{
-			colc=colc+ind+4;
-		}
-		else
-		{
-			colc=colc+ind;
-		}
 		ungetc(ca,fp);
 		//printf("\n%c\n",ca);
 	}
@@ -326,23 +309,6 @@ token getNextToken(FILE *fp)
 			}
 		}
 		strcpy(t1.lex,buf);
-		if(ca=='\n')
-		{
-			linec++;
-			colc=1;
-		}
-		else if(ca=='\t')
-		{
-			colc=colc+ind+4;
-		}
-		else if(ca==' ')
-		{
-			colc=colc+ind+1;
-		}
-		else
-		{
-			colc++;
-		}
 		ungetc(ca,fp);
 		//printf("\n%c\n",ca);
 	}
