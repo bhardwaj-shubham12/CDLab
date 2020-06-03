@@ -66,8 +66,20 @@ token getNextToken(FILE *fp)
 	{
 		t1.row=linec;
 		t1.col=colc;
-		t1.lex[0]=ca;t1.lex[1]='\0';
-		colc++;
+		t1.lex[0]=ca;
+		ca=getc(fp);
+		if((ca=='=')||(ca=='+')||(ca=='-'))
+        	{
+           	 t1.lex[1]=ca;
+           	 t1.lex[2]='\0';
+            	colc=colc+2;
+       		}
+       		 else
+        	{
+            	ungetc(ca,fp);
+            	t1.lex[1]='\0';
+            	colc++;
+        	}
 		strcpy(t1.type,"Operator");
 		//ca=getc(fp);
 		
